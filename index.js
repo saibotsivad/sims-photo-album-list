@@ -6,12 +6,13 @@ var fs = require('fs')
 var neighborhoodRegex = /N\d{3}$/
 var photoAlbumPathName = 'Storytelling'
 
-module.exports = function photoAlbums(neighborhoodRootPath, cb) {	
+module.exports = function photoAlbums(neighborhoodRootPath, cb) {
 	neighborhoodRootPath = path.normalize(neighborhoodRootPath)
 
 	getNeighborhoodFolders(neighborhoodRootPath, function(err, neighborhoodFolderList) {
 		if (err) {
-			cb({ listNeighborhoods: err })
+			err.listNeighborhoods = true
+			cb(err)
 		} else {
 			Promise.all(neighborhoodFolderList.map(neighborhoodObject(neighborhoodRootPath)).map(photoAlbumPromise))
 				.then(function(photoAlbums) {
@@ -27,7 +28,8 @@ function getNeighborhoodFolders(folderPath, cb) {
 	folderPath = path.normalize(folderPath)
 	listdirs(folderPath, function(err, list) {
 		if (err) {
-			cb({ listDirs: err })
+			err.listDirs = true
+			cb(err)
 		} else {
 			var filteredFolders = list.map(function(folder) {
 				var neighborhoodFolder = folder.match(neighborhoodRegex)
@@ -53,7 +55,8 @@ function photoAlbumPromise(obj) {
 	return new Promise(function(resolve, reject) {
 		fs.readdir(path.join(obj.root, obj.neighborhood, photoAlbumPathName), function(err, files) {
 			if (err) {
-				reject({ readdir: err })
+				err.readdir = true
+				reject(err)
 			} else {
 				resolve(files.filter(function(file) {
 					return file.toLowerCase().indexOf('.xml') === file.length - 4
