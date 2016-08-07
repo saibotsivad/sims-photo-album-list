@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tobiaslabs/sims-photo-album-list.git"
+    "url": "https://github.com/saibotsivad/sims-photo-album-list.git"
   },
   "keywords": [
     "sims",
@@ -17,9 +17,9 @@
   "author": "saibotsivad",
   "license": "VOL",
   "bugs": {
-    "url": "https://github.com/tobiaslabs/sims-photo-album-list/issues"
+    "url": "https://github.com/saibotsivad/sims-photo-album-list/issues"
   },
-  "homepage": "https://github.com/tobiaslabs/sims-photo-album-list",
+  "homepage": "https://github.com/saibotsivad/sims-photo-album-list",
   "dependencies": {
     "listdirs": "^3.0.0",
     "promise": "^6.1.0"
