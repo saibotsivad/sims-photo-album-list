@@ -1,6 +1,6 @@
 {
   "name": "sims-photo-album-list",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "List the Sims 2 photo albums for a neighborhood folder.",
   "main": "index.js",
   "scripts": {
