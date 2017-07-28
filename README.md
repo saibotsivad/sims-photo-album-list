@@ -1,5 +1,7 @@
 # sims-photo-album-list
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/saibotsivad/sims-photo-album-list.svg)](https://greenkeeper.io/)
+
 List the Sims 2 photo albums for a neighborhood folder.
 
 ## install
